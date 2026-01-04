@@ -1,0 +1,14 @@
+plugins:
+  moetwemoji_twemoji_override_enabled:
+    default: true
+    client: false
+
+  # Where your replacement files live inside the plugin repo:
+  moetwemoji_twemoji_source_subdir:
+    default: "twemoji"
+    client: false
+
+  # Whether to create a one-time backup before overwriting files.
+  moetwemoji_twemoji_make_backup:
+    default: true
+    client: false
