@@ -3,6 +3,7 @@
 ![disguised_face](https://github.com/user-attachments/assets/b2d5ceb7-2cd1-41de-867b-e9ad0ca2ff45)
 ![drooling_face](https://github.com/user-attachments/assets/804532fb-3111-4587-bc59-6f76dcf48915)
 ![globe_showing_americas](https://github.com/user-attachments/assets/7dece8c5-e497-4d28-87c5-5c02ff570677)
+![PixPin_2026-01-04_22-04-17](https://github.com/user-attachments/assets/eaa65953-db93-4e82-a9cb-241cf65e62f5)
 
 
 # Discourse Moetwemoji Twemoji FakePNG Override
