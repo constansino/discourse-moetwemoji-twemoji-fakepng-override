@@ -1,6 +1,10 @@
 
+![crab](https://github.com/user-attachments/assets/5d0f7862-db85-43f0-92ca-0547d0b852bf)
+![disguised_face](https://github.com/user-attachments/assets/b2d5ceb7-2cd1-41de-867b-e9ad0ca2ff45)
+![drooling_face](https://github.com/user-attachments/assets/804532fb-3111-4587-bc59-6f76dcf48915)
+![globe_showing_americas](https://github.com/user-attachments/assets/7dece8c5-e497-4d28-87c5-5c02ff570677)
 
-```md
+
 # discourse-moetwemoji-twemoji-fakepng-override
 
 <details open>
@@ -36,38 +40,6 @@
 
 ---
 
-## 仓库结构
-
-把你的替换资源放到：
-
-```
-
-twemoji/
-yum.png
-broken_heart.png
-1st_place_medal.png
-...
-
-````
-
-文件名不需要改，只要保证和目标目录同名即可。
-
----
-
-## Windows：把 fakepng 复制进仓库（不改名）
-
-仓库自带脚本：`scripts/prepare-fakepng.ps1`
-
-示例：
-
-```powershell
-$src = "C:\Users\1\love\moetwemoji72x72fakepng(avif)"
-.\scripts\prepare-fakepng.ps1 -Source $src
-````
-
-脚本会把 `$src` 里的 `*.png` 原样复制到仓库的 `twemoji/`。
-
----
 
 ## 安装（Discourse Docker）
 
@@ -83,7 +55,7 @@ hooks:
     - exec:
         cd: $home/plugins
         cmd:
-          - git clone https://github.com/<YOU>/discourse-moetwemoji-twemoji-fakepng-override.git
+          - git clone https://github.com/constansino/discourse-moetwemoji-twemoji-fakepng-override.git
 ```
 
 然后重建：
@@ -192,10 +164,6 @@ RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
 
 ---
 
-## 许可证与署名（务必补全）
-
-如果你的替换资源来自 Noto Emoji / OpenMoji / Twemoji 等项目，请在 `NOTICE` / `LICENSE` 中保留上游许可证与署名，并注明你的转换/改动（例如：转码、合成、压缩等）。
-
 </details>
 
 ---
@@ -235,36 +203,6 @@ but serve your own animated emoji file.
 
 ---
 
-## Repo layout
-
-Put your replacement assets in:
-
-```
-twemoji/
-  yum.png
-  broken_heart.png
-  1st_place_medal.png
-  ...
-```
-
-No renaming is required — just keep filenames identical to the target directory.
-
----
-
-## Windows: copy your fakepng assets into the repo (no rename)
-
-This repo includes: `scripts/prepare-fakepng.ps1`
-
-Example:
-
-```powershell
-$src = "C:\Users\1\love\moetwemoji72x72fakepng(avif)"
-.\scripts\prepare-fakepng.ps1 -Source $src
-```
-
-It copies `*.png` as-is into the repo `twemoji/` folder.
-
----
 
 ## Install (Discourse Docker)
 
@@ -280,7 +218,7 @@ hooks:
     - exec:
         cd: $home/plugins
         cmd:
-          - git clone https://github.com/<YOU>/discourse-moetwemoji-twemoji-fakepng-override.git
+          - git clone https://github.com/constansino/discourse-moetwemoji-twemoji-fakepng-override.git
 ```
 
 Rebuild:
@@ -389,10 +327,3 @@ RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
 
 ---
 
-## License & attribution
-
-If your assets are derived from upstream emoji projects (Noto Emoji / OpenMoji / Twemoji, etc.), keep upstream license terms and attribution in `NOTICE`/`LICENSE`, and document your modifications (conversion, compression, etc.).
-
-</details>
-```
-::contentReference[oaicite:0]{index=0}
