@@ -152,7 +152,7 @@ RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
 
 
 
-#(The second method) Manual Installation Guide (Override Version)
+## (The second method) Manual Installation Guide (Override Version)
 
 This guide explains how to **manually install and apply** the
 `discourse-moetwemoji-twemoji-fakepng-override` plugin **inside a running Discourse container**, and clarifies why a full rebuild is **not strictly required** for the override version.
