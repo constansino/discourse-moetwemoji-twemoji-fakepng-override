@@ -153,3 +153,145 @@ RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
 
 ---
 
+
+
+# Manual Installation Guide (Override Version)
+
+This guide explains how to **manually install and apply** the
+`discourse-moetwemoji-twemoji-fakepng-override` plugin **inside a running Discourse container**, and clarifies why a full rebuild is **not strictly required** for the override version.
+
+---
+
+## 1. Enter the Discourse Container
+
+On your server, go to the Discourse Docker directory (usually `/var/discourse`) and enter the running container:
+
+```
+cd /var/discourse
+./launcher enter app
+
+```
+
+You should now be inside the container shell.
+
+---
+
+## 2. Clone the Override Plugin Manually
+
+Navigate to the plugins directory and clone the repository:
+
+```
+cd /var/www/discourse/plugins
+git clone https://github.com/constansino/discourse-moetwemoji-twemoji-fakepng-override.git
+
+```
+
+Verify that the directory exists:
+
+```
+ls discourse-moetwemoji-twemoji-fakepng-override
+
+```
+
+---
+
+## 3. Apply the Emoji Override
+
+Go back to the Discourse root directory:
+
+```
+su - discourse
+cd /var/www/discourse
+
+```
+
+Check the current status (optional but recommended):
+
+```
+RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
+
+```
+
+Apply the override:
+
+```
+RAILS_ENV=production bundle exec rake moetwemoji_twemoji:apply
+
+```
+
+If the command finishes without errors, the Twemoji PNG files have been replaced by Moetwemoji.
+
+---
+
+## 4. Important Notes About Rebuilds (Persistence)
+
+### ❗ No rebuild is required to make the override work
+
+This **override version** works by directly replacing files in the running container.
+Therefore:
+
+* ✅ **You do NOT need to run `./launcher rebuild app`**
+
+* ✅ Changes take effect immediately after running the rake task
+
+### ⚠️ But the change is NOT persistent
+
+Because this is done **inside the container filesystem**:
+
+* Any future `./launcher rebuild app`
+
+* Or container recreation / upgrade
+
+will **wipe the changes**, and the emoji override will be lost.
+
+👉 If you need **persistence across rebuilds**, you must install the plugin via `app.yml` hooks and rebuild properly.
+
+---
+
+## 5. Clear CDN and Browser Cache (Very Important)
+
+After applying the override, emoji may still appear unchanged due to caching.
+
+### 5.1 Clear CDN Cache (e.g. Cloudflare)
+
+If you are using a CDN such as **Cloudflare**:
+
+* Purge cache for:
+
+  * `/images/emoji/*`
+
+  * or perform a **full cache purge** if necessary
+
+Otherwise, the old Twemoji PNG files may still be served.
+
+### 5.2 Clear Browser Cache
+
+On the client side:
+
+* Hard refresh the page (`Ctrl + F5` / `Cmd + Shift + R`)
+
+* Or clear browser cache
+
+* Or test in an incognito/private window
+
+Until both CDN and browser caches are cleared, emoji changes may not be visible.
+
+---
+
+## 6. Summary
+
+* This override plugin can be **installed and applied without rebuilding**
+
+* Manual installation is useful for:
+
+  * Testing
+
+  * Temporary usage
+
+  * Debugging
+
+* The downside is **lack of persistence**
+
+* Always clear **CDN cache + browser cache** after applying emoji overrides
+
+---
