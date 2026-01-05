@@ -17,20 +17,14 @@ This plugin will **replace** the default system emojis with Moetwemoji.
 
 > If you want to add Moetwemoji as an **additional** emoji pack without replacing the default set, please use the **[Discourse Moetwemoji Pack](https://github.com/constansino/discourse-moetwemoji-pack)** instead.
 
-## Requirements
+This README provides two installation methods:
 
-1. Your forum must be using the **Twemoji** emoji set (otherwise it won’t request `/images/emoji/twemoji/...`).
-2. Your replacement filenames must match Discourse’s existing Twemoji filenames, e.g.
+1. The first method requires a rebuild.
+2. The second method is to manually enter the container and download it from GitHub.
 
-   * `yum.png`
-   * `broken_heart.png`
-   * `1st_place_medal.png`
-3. You are running Discourse via Docker (`/var/discourse`) and can enter the container to run rake tasks.
+There's no difference between the two methods; the former is simply more persistent. If the download fails when rebuilding using the first method, consider trying the second method, which involves directly installing within the container. This is because it essentially downloads and replaces existing emoji images.
 
----
-
-
-## Install (Discourse Docker)
+## Install( The first method) (Discourse Docker)
 
 Edit on the host:
 
@@ -155,7 +149,10 @@ RAILS_ENV=production bundle exec rake moetwemoji_twemoji:status
 
 
 
-# Manual Installation Guide (Override Version)
+
+
+
+#(The second method) Manual Installation Guide (Override Version)
 
 This guide explains how to **manually install and apply** the
 `discourse-moetwemoji-twemoji-fakepng-override` plugin **inside a running Discourse container**, and clarifies why a full rebuild is **not strictly required** for the override version.
