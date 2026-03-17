@@ -1,0 +1,1 @@
+- exec: bash -lc 'script=/shared/emoji-overrides/discourse-moetwemoji-twemoji-fakepng-override/scripts/apply_to_discourse_twemoji_override.sh; if [ -x "$script" ]; then "$script"; else echo "Moetwemoji override script not found: $script"; fi'
